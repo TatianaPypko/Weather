@@ -1,29 +1,24 @@
-
-
-
 class WeatherApi {
-
   async getUserLocationWeather(x, y) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&appid=4de0326522afcc173524251c3d641fec`;
 
     return await fetch(url, { method: "GET" })
-        .then(response =>  response.json())
-        .catch((error) => {
-          alert("Oops... Something went wrong. Try later");
-        });
+      .then((response) => response.json())
+      .catch((error) => {
+        alert("Oops... Something went wrong. Try later");
+      });
   }
 
   async getWeather(cityId) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityId}&appid=4de0326522afcc173524251c3d641fec`;
-    
+
     return await fetch(url, { method: "POST" })
       .then((response) => response.json())
       .catch((error) => {
-  
         alert("Oops... Something went wrong. Try later");
       });
-    }
   }
+}
 
 class Weather extends WeatherApi {
   list = document.querySelector(".cities");
@@ -122,7 +117,7 @@ class Weather extends WeatherApi {
   }
 
   setLS(data) {
-    localStorage.setItem('city', data)
+    localStorage.setItem("city", data);
   }
 
   renderData(data, isInitialRequestData = false) {
