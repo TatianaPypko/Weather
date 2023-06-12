@@ -121,7 +121,6 @@ class Weather extends WeatherApi {
   }
 
   renderData(data, isInitialRequestData = false) {
-    console.log(data);
     const { name, weather, main, sys, wind, visibility } = data;
 
     const userLocation = document.querySelectorAll(".city-name--location");
